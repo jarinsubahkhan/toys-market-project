@@ -1,8 +1,19 @@
 /* eslint-disable*/
-import React from 'react';
+import React, { useContext } from 'react';
 import img from '../../../../img/Simply_Toys_logo_600x600.jpg'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider';
 const NavBar = () => {
+
+const {user, logOut} = useContext(AuthContext);
+
+    const handleLogout = () => {
+logOut()
+.then(() => {
+})
+.catch( error => console.log(error))
+    }
+
     return (
         <div>
 <div className="navbar bg-blue-300">
@@ -26,13 +37,17 @@ const NavBar = () => {
     <ul className="menu menu-horizontal text-white px-1">
     <li><Link to="/">Home</Link></li>
         <li><a>All Toys</a></li>
-        <li><a>My Toys</a></li>
-        <li><a>Add a Toy</a></li>
         <li><a>Blogs</a></li>
+        {user?.email ? <>
+            <li><a>Add a Toy</a></li>
+            <li><a>My Toys</a></li>
+                <li><button onClick={handleLogout}>Log Out</button></li>  
+            </> 
+            : <li><Link to="/login">Login</Link></li>}
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to="/login" className="btn">Login</Link>
+    {/* <Link to="/login" className="btn">Login</Link> */}
   </div>
 </div>    
         </div>

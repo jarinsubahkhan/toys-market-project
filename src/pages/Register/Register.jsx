@@ -1,12 +1,28 @@
 /* eslint-disable*/
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 
 const Register = () => {
 
+    const {createUser} = useContext(AuthContext);
+
     const handleRegister = event =>{
         event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email= form.email.value;
+        const password = form.password.value;
+        const photoUrl = form.photoUrl.value;
+
+        console.log(name, email, password, photoUrl)
+
+        createUser(email,password)
+        .then(result => {
+            const user = result.user;
+        })
+        .catch(error => console.log(error))
     }
     
 
@@ -47,7 +63,7 @@ const Register = () => {
                         <input type="url" name='photoUrl' placeholder="photoUrl" className="input input-bordered" />
                     </div>
                     <div className="form-control mt-6">
-                       <input className="btn btn-primary bg-slate-700" type="submit" value="Login" />
+                       <input className="btn btn-primary bg-slate-700" type="submit" value="Register" />
                     </div>
                     <label className="label mt-2">
                             <a href="#" className="label-text-alt link link-hover">Already have an account? Please <Link className='text-blue-400 font-bold' to="/login"> Login</Link></a>

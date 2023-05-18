@@ -1,15 +1,34 @@
 /* eslint-disable*/
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
+import { AuthContext } from '../../providers/AuthProvider';
 const Login = () => {
+
+    const {signIn, googleSignIn} = useContext(AuthContext);
 
 const handleLogin = event =>{
     event.preventDefault();
+    const form = event.target;
+    const email= form.email.value;
+    const password = form.password.value;
+
+    console.log( email, password)
+    signIn(email, password)
+    .then(result => {
+        const user = result.user;
+        console.log(user);
+    })
+    .catch(error => console.log(error));
 }
 
 const handleGoogleSignIn = () => {
     // Handle Google sign-in logic here
+    googleSignIn()
+            .then(result => {
+    console.log(result.user);
+            })
+            .catch(error => console.log(error))   
   };
     return (
         <div className="hero min-h-screen bg-base-200">
