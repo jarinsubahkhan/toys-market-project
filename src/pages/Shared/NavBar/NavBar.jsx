@@ -24,10 +24,14 @@ logOut()
       </label>
       <ul tabIndex={0} className="menu menu-compact font-semibold text-white dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         <li><Link to="/">Home</Link></li>
-        <li><a>All Toys</a></li>
-        <li><a>My Toys</a></li>
-        <li><a>Add a Toy</a></li>
-        <li><a>Blogs</a></li>
+        <li><Link to="/allToys">All Toys</Link></li>
+        <li><Link to="/blogs">Blogs</Link></li>
+        {user?.email ? <>
+            <li><Link to="/addToys">Add a Toy</Link></li>
+            <li><Link to="/myToys">My Toys</Link></li>
+                <li><button onClick={handleLogout}>Log Out</button></li>  
+            </> 
+            : <li><Link to="/login">Login</Link></li>}
       </ul>
     </div>
     <img className='h-[60px] w-[90px] rounded-full' src={img} alt="" />
@@ -36,11 +40,11 @@ logOut()
   <div className="navbar-center font-semibold hidden lg:flex">
     <ul className="menu menu-horizontal text-white px-1">
     <li><Link to="/">Home</Link></li>
-        <li><a>All Toys</a></li>
-        <li><a>Blogs</a></li>
+        <li><Link to="/allToys">All Toys</Link></li>
+        <li><Link to="/blogs">Blogs</Link></li>
         {user?.email ? <>
-            <li><a>Add a Toy</a></li>
-            <li><a>My Toys</a></li>
+            <li><Link to="/addToys">Add a Toy</Link></li>
+            <li><Link to="/myToys">My Toys</Link></li>
                 <li><button onClick={handleLogout}>Log Out</button></li>  
             </> 
             : <li><Link to="/login">Login</Link></li>}

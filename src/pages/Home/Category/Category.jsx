@@ -1,8 +1,23 @@
 /* eslint-disable*/
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import MyToys from '../MyToys/MyToys';
+import Toys from '../Toys/Toys';
 
 const Category = () => {
-    const [activeTab, setActiveTab] = useState("animal");
+  const [categories, setCategories] = useState([]);
+    const [activeTab, setActiveTab] = useState("ani");
+
+useEffect(()=> {
+  fetch(`http://localhost:5000/allToys/${activeTab}`)
+  .then(res => res.json())
+  .then(result => {
+    setCategories(result)
+  });
+}, [activeTab]);
+
+// const result = categories?.filter((soft) => soft.category == activeTab);
+// console.log(result)
+
 
     const handleTabClick = (tabName) => {
         setActiveTab(tabName);
@@ -20,7 +35,7 @@ const Category = () => {
           <div className="tabs d-flex justify-center my-8 align-items-center">
             <div
               onClick={() => handleTabClick("animal")}
-              className={`tab tab-bordered tab2 animal font-semibold text-2xl text-slate-600 ${
+              className={`animal tab tab-bordered tab2  font-semibold text-2xl text-slate-600 ${
                 activeTab == "animal" ? " bg-blue-300 text-white tab-active" : ""
               }`}
             >
@@ -28,7 +43,7 @@ const Category = () => {
             </div>
             <div
               onClick={() => handleTabClick("character")}
-              className={`tab tab-bordered tab2 character font-semibold text-2xl text-slate-600 ${
+              className={`character tab tab-bordered tab2  font-semibold text-2xl text-slate-600 ${
                 activeTab == "character" ? " bg-blue-300 text-white tab-active" : ""
               }`}
             >
@@ -36,7 +51,7 @@ const Category = () => {
             </div>
             <div
               onClick={() => handleTabClick("fantasy")}
-              className={`tab tab-bordered tab2 fantasy font-semibold text-2xl text-slate-600 ${
+              className={`fantasy tab tab-bordered tab2  font-semibold text-2xl text-slate-600 ${
                 activeTab == "fantasy" ? " bg-blue-300 text-white tab-active" : ""
               }`}
             >
@@ -44,6 +59,11 @@ const Category = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className='grid grid-cols-1 md:grid-cols-3 mt-12'>
+{categories?.map((soft) => (
+  <Toys key={soft._id} soft={soft} ></Toys>
+))}
       </div>
         </div>
     );

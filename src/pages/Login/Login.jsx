@@ -24,7 +24,7 @@ const handleLogin = event =>{
 
 const handleGoogleSignIn = () => {
     // Handle Google sign-in logic here
-    googleSignIn()
+       googleSignIn()
             .then(result => {
     console.log(result.user);
             })
