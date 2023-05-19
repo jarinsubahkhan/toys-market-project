@@ -1,10 +1,16 @@
-/* eslint-disable*/
-import React, { useContext, useState} from 'react';
+/* eslint-disable no-undef */
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../../providers/AuthProvider';
-import './AddToy.css'
+import './ModalUpdate.css'
+import { useParams } from 'react-router-dom';
 
-const AddToy = () => {
+
+const ModalUpdate = () => {
+    const {id} = useParams();
+
     const { user } = useContext(AuthContext);
     // const [selectedOption, setSelectedOption] = useState(null);
     const {
@@ -15,9 +21,8 @@ const AddToy = () => {
       } = useForm();
 
       const onSubmit = (data) => {
-        
-        fetch("http://localhost:5000/postToys", {
-            method: "POST",
+ fetch(`http://localhost:5000/toys/${id}`, {
+            method: "PATCH",
             headers: { 'Content-Type':'application/json'},
             body: JSON.stringify(data)
         })
@@ -25,10 +30,10 @@ const AddToy = () => {
         .then((result) => {
             console.log(result);
         })
-       console.log(data)}
+       console.log(data)
+      }
 
     return (
-
         <div className="add-job-container">
         <div className="add-job row">
           <div className="col-md-8">
@@ -107,7 +112,7 @@ const AddToy = () => {
                 {...register("description")}
                 placeholder="description"
               /> 
-         <input className='submit-btn' type="submit" value="Add a toy" />
+         <input className='submit-btn' type="submit" value="Update a toy" />
             </form>
           </div>
           {/* <div className="col-md-4">
@@ -122,4 +127,4 @@ const AddToy = () => {
     );
 };
 
-export default AddToy;
+export default ModalUpdate;

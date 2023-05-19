@@ -7,6 +7,10 @@ import AddToy from "../pages/Home/AddToy/AddToy";
 import MyToys from "../pages/Home/MyToys/MyToys";
 import AllToys from "../pages/Home/AllToys/AllToys";
 import Blogs from "../pages/Home/Blogs/Blogs";
+import ToyDetails from "../pages/Home/ToyDetails/ToyDetails";
+import ModalUpdate from "../pages/Home/ModalUpdate/ModalUpdate";
+
+
 
 
 const router = createBrowserRouter([
@@ -42,7 +46,15 @@ const router = createBrowserRouter([
             path:'/blogs',
             element: <Blogs></Blogs> ,
         },
-        
+        {
+          path: '/details/:id',
+          element: <ToyDetails></ToyDetails>
+        },
+        {
+          path:'/updateToys/:id',
+          element: <ModalUpdate></ModalUpdate>
+        }
+
       ]
     },
   ]);

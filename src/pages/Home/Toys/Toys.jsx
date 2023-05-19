@@ -1,13 +1,15 @@
 /* eslint-disable*/
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Toys = ({soft}) => {
     const { photoUrl, 
          name,
          price, 
         rating,
-        category  
+        category,
+        _id  
     } = soft || {};
     return ( 
         <div className="card w-72 mx-auto max-w-7xl mb-4 bg-base-100 border">
@@ -23,7 +25,7 @@ const Toys = ({soft}) => {
     </div>
     <p>Category : {category}</p>
     <div className="card-actions">
-      <button className="btn border-neutral-50 bg-blue-400">View Details</button>
+      <Link to={`/details/${_id}`} className="btn border-neutral-50 bg-blue-400">View Details</Link>
     </div>
   </div>
 </div>
