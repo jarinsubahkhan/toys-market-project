@@ -15,7 +15,7 @@ const AddToy = () => {
       } = useForm();
 
       const onSubmit = (data) => {
-        
+
         fetch("http://localhost:5000/postToys", {
             method: "POST",
             headers: { 'Content-Type':'application/json'},
@@ -66,6 +66,7 @@ const AddToy = () => {
                 <option value="Developer">Developer</option>
               </select> */}
               <select className="text-input" {...register("category")}>
+              <option value="">choose</option>
                 <option value="animal">Animal</option>
                 <option value="character">Character</option>
                 <option value="fantasy">Fantasy</option>

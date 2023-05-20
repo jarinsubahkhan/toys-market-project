@@ -1,11 +1,13 @@
 /* eslint-disable*/
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Toys = ({soft}) => {
+    const {user} = useContext(AuthContext);
     const { photoUrl, 
          name,
          price, 
@@ -13,6 +15,12 @@ const Toys = ({soft}) => {
         category,
         _id  
     } = soft || {};
+
+    const handleToast =() =>{
+if(!user){
+    alert('At first you have to login')
+}
+    }
     return ( 
         <div className="card w-72 mx-auto max-w-7xl mb-4 bg-base-100 border">
   <figure className="px-5 pt-5">
@@ -27,7 +35,7 @@ const Toys = ({soft}) => {
     </div>
     <p>Category : {category}</p>
     <div className="card-actions">
-      <Link to={`/details/${_id}`} className="btn border-neutral-50 bg-blue-400">View Details</Link>
+      <Link onClick={handleToast} to={`/details/${_id}`} className="btn border-neutral-50 bg-blue-400">View Details</Link>
     </div>
   </div>
 </div>
