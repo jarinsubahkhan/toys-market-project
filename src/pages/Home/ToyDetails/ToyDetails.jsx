@@ -9,7 +9,7 @@ const {id} = useParams();
 const [detailsData, setDetailsData] = useState({});
 
 useEffect(()=>{
-    fetch(`http://localhost:5000/toys/${id}`)
+    fetch(`https://toys-marketplace-server-omega.vercel.app/toys/${id}`)
     .then(res => res.json())
     .then(data => {
         // console.log(data)

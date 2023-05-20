@@ -8,7 +8,7 @@ const Category = () => {
     const [activeTab, setActiveTab] = useState("ani");
 
 useEffect(()=> {
-  fetch(`http://localhost:5000/allToys/${activeTab}`)
+  fetch(`https://toys-marketplace-server-omega.vercel.app/allToys/${activeTab}`)
   .then(res => res.json())
   .then(result => {
     setCategories(result)

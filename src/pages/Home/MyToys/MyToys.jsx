@@ -15,7 +15,7 @@ const [searchText, setSearchText] = useState("");
 const [modalShow, setModalShow] = React.useState(false);
 
 useEffect(()=>{
-fetch(`http://localhost:5000/myToys/${user?.email}`)
+fetch(`https://toys-marketplace-server-omega.vercel.app/myToys/${user?.email}`)
 .then(res => res.json())
 .then(data =>{
     setUserToy(data);
@@ -27,7 +27,7 @@ useEffect(()=>{
 }, []);
 
 const handleSearch=()=>{
-    fetch(`http://localhost:5000/toyName/${searchText}`)
+    fetch(`https://toys-marketplace-server-omega.vercel.app/toyName/${searchText}`)
     .then((res)=> res.json())
     .then((data) => {
         setUserToy(data)
@@ -37,7 +37,7 @@ const handleSearch=()=>{
 const handleDelete = id => {
     const proceed = confirm('Do you want to delete?')
     if(proceed){
-fetch(`http://localhost:5000/toys/${id}`,{
+fetch(`https://toys-marketplace-server-omega.vercel.app/toys/${id}`,{
     method: 'DELETE'
 })
 .then(res => res.json())
@@ -53,7 +53,7 @@ if(data.deletedCount > 0){
 }
 
 // const handleToyUpdate = id =>{
-//     fetch(`http://localhost:5000/toys/${id}`, {
+//     fetch(`https://toys-marketplace-server-omega.vercel.app/toys/${id}`, {
 // method: 'PATCH',
 // header: {
 // 'content-type':'application/json',

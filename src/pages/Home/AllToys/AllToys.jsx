@@ -10,13 +10,13 @@ const [toys,setToys] = useState([]);
 const [searchText, setSearchText] = useState("");
 
 useEffect(()=>{
-    fetch('http://localhost:5000/allToys')
+    fetch('https://toys-marketplace-server-omega.vercel.app/allToys')
     .then(res => res.json())
     .then(data => setToys(data))
 },[])
 
 const handleSearch=()=>{
-    fetch(`http://localhost:5000/toyName/${searchText}`)
+    fetch(`https://toys-marketplace-server-omega.vercel.app/toyName/${searchText}`)
     .then((res)=> res.json())
     .then((data) => {
         setToys(data)

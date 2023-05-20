@@ -16,7 +16,7 @@ const AddToy = () => {
 
       const onSubmit = (data) => {
 
-        fetch("http://localhost:5000/postToys", {
+        fetch("https://toys-marketplace-server-omega.vercel.app/postToys", {
             method: "POST",
             headers: { 'Content-Type':'application/json'},
             body: JSON.stringify(data)
