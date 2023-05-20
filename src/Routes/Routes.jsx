@@ -9,6 +9,7 @@ import AllToys from "../pages/Home/AllToys/AllToys";
 import Blogs from "../pages/Home/Blogs/Blogs";
 import ToyDetails from "../pages/Home/ToyDetails/ToyDetails";
 import ModalUpdate from "../pages/Home/ModalUpdate/ModalUpdate";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
         },
         {
           path: '/details/:id',
-          element: <ToyDetails></ToyDetails>
+          element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>
         },
         {
           path:'/updateToys/:id',

@@ -3,6 +3,8 @@ import React, { useContext } from 'react';
 import img from '../../../../img/Simply_Toys_logo_600x600.jpg'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import { FaUserAlt } from 'react-icons/fa';
+
 const NavBar = () => {
 
 const {user, logOut} = useContext(AuthContext);
@@ -29,9 +31,11 @@ logOut()
         {user?.email ? <>
             <li><Link to="/addToys">Add a Toy</Link></li>
             <li><Link to="/myToys">My Toys</Link></li>
+           
                 <li><button onClick={handleLogout}>Log Out</button></li>  
             </> 
             : <li><Link to="/login">Login</Link></li>}
+          
       </ul>
     </div>
     <img className='h-[60px] w-[90px] rounded-full' src={img} alt="" />
@@ -45,12 +49,17 @@ logOut()
         {user?.email ? <>
             <li><Link to="/addToys">Add a Toy</Link></li>
             <li><Link to="/myToys">My Toys</Link></li>
-                <li><button onClick={handleLogout}>Log Out</button></li>  
+                <li><button onClick={handleLogout}>Log Out</button></li> 
+             
             </> 
             : <li><Link to="/login">Login</Link></li>}
+   
     </ul>
   </div>
   <div className="navbar-end">
+  {user &&  <div className="w-10 rounded-full">
+          <img className='rounded-full justify-center text-center' src="https://i.ibb.co/Wkj4NmT/360-F-434955751-FQp-ZNPBb-MCpi-Tz-Bi-ISwj-UDWQA0o-HXc2d.jpg" />
+        </div>}  
     {/* <Link to="/login" className="btn">Login</Link> */}
   </div>
 </div>    
