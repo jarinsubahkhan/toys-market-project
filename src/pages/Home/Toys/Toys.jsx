@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 const Toys = ({soft}) => {
     const { photoUrl, 
@@ -20,7 +22,7 @@ const Toys = ({soft}) => {
     <h2 className="card-title">{name}</h2>
     <div className='flex gap-4'>
     <p>Price : {price}</p>
-    <p>Rating : {rating}</p>
+    <Rating style={{ maxWidth: 90 } } value={rating} readOnly/>
     
     </div>
     <p>Category : {category}</p>

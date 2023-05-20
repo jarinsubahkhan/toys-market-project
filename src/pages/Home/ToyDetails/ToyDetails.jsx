@@ -1,6 +1,8 @@
 /* eslint-disable*/
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 const ToyDetails = () => {
 const {id} = useParams();
@@ -33,7 +35,7 @@ const {photoUrl, name, sellerName, email, price, rating, quantity,description} =
         <p className='text-lg font-medium text-slate-600'><small>Quantity : {quantity}</small></p>
     </div>
     <div className="card-actions justify-end">
-    <button className=" ">Rating : {rating}</button>
+    <Rating style={{ maxWidth: 90 } } value={rating} readOnly/>
     </div>
   </div>
 </div>
