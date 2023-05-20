@@ -28,8 +28,8 @@ const Footer = () => {
 </footer> 
 <footer className="footer px-10 py-4 bg-slate-800 text-base-content">
   <div className="items-center grid-flow-col">
-   <img className='w-[55px] h-[50px] rounded-full' src={img} alt="" />
-    <p className=' text-teal-100 font-semibold'>Fuzzy Wuzzy<br/><small>Copyright © 2023 - All right reserved</small></p>
+   <img className='w-[55px] h-[50px] rounded-full' src="https://i.ibb.co/r3BFYpj/Simply-Toys-logo-600x600.jpg" alt="" />
+    <p className=' text-teal-100 font-semibold'>Minnion Sky<br/><small>Copyright © 2023 - All right reserved</small></p>
   </div> 
   <div className="md:place-self-center md:justify-self-end">
     <div className="grid grid-flow-col gap-4">
