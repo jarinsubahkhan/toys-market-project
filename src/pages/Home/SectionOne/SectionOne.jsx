@@ -13,13 +13,17 @@ const SectionOne = () => {
           imagination and creativity in children. With years of experience in the industry, we carefully
           curate a wide range of toys from trusted brands to ensure that your child receives nothing but
           the best.</p>
-          <p className='mb-5 text-base font-medium text-white'>          Our mission is to create a fun and enjoyable shopping experience for both kids and parents. We
-          believe that playtime is crucial for a child's development, and our toys are designed to promote
-          learning, problem-solving, and social interaction.</p>
           <p className='text-sky-200 font-bold'>
           Thank you for choosing us as your go-to toy store. Feel free to contact us if you have any
           questions or need assistance. Happy shopping!
         </p>
+        <div className='w-20 mt-8  flex'>
+            <img src="https://i.ibb.co/5jX10tr/7890168.png" alt="" />
+            <img src="https://i.ibb.co/FJJzRdC/baby-sleeping-icon.png" alt="" />
+            <img src="https://i.ibb.co/2Fzvv9Q/Teddy-Bear-1320568046115663545.png" alt="" />
+        <img src="https://i.ibb.co/dfxr4vG/405129.png" alt="" />
+        <img className='rounded-full ml-2' src="https://i.ibb.co/n359wj0/child-icon-png-favpng-Phpp-Jv-Jtj-CJvw-CEb5c2y-Pp00x.jpg" alt="" />
+        </div>
     </div>
   </div>
 </div>          
