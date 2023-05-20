@@ -10,6 +10,7 @@ import Blogs from "../pages/Home/Blogs/Blogs";
 import ToyDetails from "../pages/Home/ToyDetails/ToyDetails";
 import ModalUpdate from "../pages/Home/ModalUpdate/ModalUpdate";
 import PrivateRoute from "./PrivateRoute";
+import NotFound from "../NotFound/NotFound";
 
 
 
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         {
           path:'/updateToys/:id',
           element: <ModalUpdate></ModalUpdate>
+        },
+        {
+          path:'*',
+          element:<NotFound></NotFound>
         }
 
       ]

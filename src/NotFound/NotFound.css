@@ -1,0 +1,32 @@
+body {
+    background-color: #f1f1f1;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 500px;
+    margin: 100px auto;
+  }
+  
+  .image {
+    margin-bottom: 30px;
+    justify-content: center;
+align-items: center;
+margin-left: 80px;
+  }
+  
+  .button {
+    display: inline-block;
+    background-color:slategray;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-top: 18px;
+  }
+  
+  .button:hover {
+    background-color: slateblue;
+  }
